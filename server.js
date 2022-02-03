@@ -29,8 +29,10 @@ app.get("/fruits/", (req, res) => {
 });
 
 app.get("/fruits/:index", (req, res) => {
-  const index = req.params.index;
-  res.send(fruits[index]);
+  const { index } = req.params;
+  res.render("show.ejs", {
+    fruit: fruits[index],
+  });
 });
 
 // Listener
